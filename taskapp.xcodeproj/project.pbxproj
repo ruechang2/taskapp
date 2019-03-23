@@ -14,6 +14,7 @@
 		CE11243D2245F2F700FBD68C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE11243B2245F2F700FBD68C /* LaunchScreen.storyboard */; };
 		CE1124482245F2F700FBD68C /* taskappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1124472245F2F700FBD68C /* taskappTests.swift */; };
 		CE1124532245F2F700FBD68C /* taskappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1124522245F2F700FBD68C /* taskappUITests.swift */; };
+		CE1124612245F68700FBD68C /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1124602245F68700FBD68C /* InputViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		CE11244E2245F2F700FBD68C /* taskappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = taskappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE1124522245F2F700FBD68C /* taskappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskappUITests.swift; sourceTree = "<group>"; };
 		CE1124542245F2F700FBD68C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE1124602245F68700FBD68C /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				CE1124392245F2F700FBD68C /* Assets.xcassets */,
 				CE11243B2245F2F700FBD68C /* LaunchScreen.storyboard */,
 				CE11243E2245F2F700FBD68C /* Info.plist */,
+				CE1124602245F68700FBD68C /* InputViewController.swift */,
 			);
 			path = taskapp;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1124612245F68700FBD68C /* InputViewController.swift in Sources */,
 				CE1124352245F2ED00FBD68C /* ViewController.swift in Sources */,
 				CE1124332245F2ED00FBD68C /* AppDelegate.swift in Sources */,
 			);
@@ -442,7 +446,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.kota.isayama.taskapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -460,7 +464,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.kota.isayama.taskapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
