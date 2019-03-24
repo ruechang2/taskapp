@@ -9,18 +9,23 @@ import UserNotifications
 import UIKit
 import RealmSwift
 class InputViewController: UIViewController {
- var task: Task!
+
 let realm = try! Realm()
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var TitletextField: UITextField!
+    
+    
+    @IBOutlet weak var category: UITextField!
+    var task: Task!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
         self.view.addGestureRecognizer(tapGesture)
-        
+       
         TitletextField.text = task.title
         contentsTextView.text = task.contents
         datePicker.date = task.date
@@ -31,9 +36,10 @@ let realm = try! Realm()
             self.task.title = self.TitletextField.text!
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date
+        
             self.realm.add(self.task, update: true)
         }
-        setNotification(task: task)
+        
         super.viewWillDisappear(animated)
     }
     
@@ -41,6 +47,7 @@ let realm = try! Realm()
         // キーボードを閉じる
         view.endEditing(true)
     }
+
     // タスクのローカル通知を登録する --- ここから ---
     func setNotification(task: Task) {
         let content = UNMutableNotificationContent()
@@ -82,15 +89,3 @@ let realm = try! Realm()
     } // --- ここまで追加 ---
 }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
