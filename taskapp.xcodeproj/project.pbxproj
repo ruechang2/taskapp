@@ -15,6 +15,7 @@
 		CE1124482245F2F700FBD68C /* taskappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1124472245F2F700FBD68C /* taskappTests.swift */; };
 		CE1124532245F2F700FBD68C /* taskappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1124522245F2F700FBD68C /* taskappUITests.swift */; };
 		CE1124612245F68700FBD68C /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1124602245F68700FBD68C /* InputViewController.swift */; };
+		CE1124632246A2E900FBD68C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1124622246A2E900FBD68C /* Task.swift */; };
 		F6286F12A1797BB49958925E /* Pods_taskapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5135489195131943DEC3EBE8 /* Pods_taskapp.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		CE1124522245F2F700FBD68C /* taskappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskappUITests.swift; sourceTree = "<group>"; };
 		CE1124542245F2F700FBD68C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE1124602245F68700FBD68C /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		CE1124622246A2E900FBD68C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		CE1124312245F2ED00FBD68C /* taskapp */ = {
 			isa = PBXGroup;
 			children = (
+				CE1124622246A2E900FBD68C /* Task.swift */,
 				CE1124322245F2ED00FBD68C /* AppDelegate.swift */,
 				CE1124342245F2ED00FBD68C /* ViewController.swift */,
 				CE1124362245F2ED00FBD68C /* Main.storyboard */,
@@ -149,7 +152,6 @@
 				CAE2B6626378A0E335898E4E /* Pods-taskapp.debug.xcconfig */,
 				5D6662EFB2FE49837C2ACF1A /* Pods-taskapp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -335,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1124632246A2E900FBD68C /* Task.swift in Sources */,
 				CE1124612245F68700FBD68C /* InputViewController.swift in Sources */,
 				CE1124352245F2ED00FBD68C /* ViewController.swift in Sources */,
 				CE1124332245F2ED00FBD68C /* AppDelegate.swift in Sources */,
