@@ -8,17 +8,19 @@
 import UserNotifications
 import UIKit
 import RealmSwift
-class InputViewController: UIViewController {
 
+
+class InputViewController: UIViewController {
 let realm = try! Realm()
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var TitletextField: UITextField!
     
     
-    @IBOutlet weak var category: UITextField!
+    @IBOutlet weak var taskcategory: UITextField!
     var task: Task!
   
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,8 @@ let realm = try! Realm()
        
         TitletextField.text = task.title
         contentsTextView.text = task.contents
+        taskcategory.text = task.category
+      
         datePicker.date = task.date
     }
     
@@ -36,7 +40,8 @@ let realm = try! Realm()
             self.task.title = self.TitletextField.text!
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date
-        
+            self.task.category = self.taskcategory.text!
+      
             self.realm.add(self.task, update: true)
         }
         
@@ -61,6 +66,7 @@ let realm = try! Realm()
             content.body = "(内容なし)"
         } else {
             content.body = task.contents
+            
         }
         content.sound = UNNotificationSound.default
         
@@ -86,6 +92,9 @@ let realm = try! Realm()
                 print("---------------/")
             }
         }
-    } // --- ここまで追加 ---
+    }
+    
+
 }
+
     
