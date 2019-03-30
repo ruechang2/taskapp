@@ -1,15 +1,16 @@
 import UIKit
 import RealmSwift
 import UserNotifications
+
 class ViewController: UIViewController, UITableViewDelegate,  UISearchBarDelegate, UITableViewDataSource  {
-    let category:[String] = ["study","excersize","work","hobby"]
-    var searchResults:[String] = []
-   
+    var category: NSArray = ["study","excersize","work","hobby"]
+    var searchResults: [String] = []
+
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var searchbar: UISearchBar!
-    var taskcategory: String!
-  
+    private var taskcategory: NSArray = []
+    var searchResult: String = ""
     
     // Realmインスタンスを取得する
     let realm = try! Realm()  // ←追加
@@ -27,32 +28,31 @@ class ViewController: UIViewController, UITableViewDelegate,  UISearchBarDelegat
     }
     
 
+    func searchItems(searchText: String){
+        // 要素を検索する。
+        if searchText != "" {
+            taskcategory = category.filter { item in
+                return (item as! String).contains(searchText)
+                } as NSArray
+        }else{
+            // 渡された文字列が空の場合は全てを表示する。
+            taskcategory = category
+            
+        }
+    }
     
  
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchbar.text != "" {
-            return searchResults.count
-            
-            } else {
-             return category.count
-            }
+
         return taskArray.count
     }
 
     
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
-            if searchbar.text != "" {
-        
-                taskcategory = "\(searchResults[indexPath.row])"
-            } else {
-             
-                taskcategory = "\(category[indexPath.row])"
-            }
-            // Cellに値を設定する.  --- ここから ---
-            let task = taskArray[indexPath.row]
-            cell.textLabel?.text = task.title
-            
+
+            // Cellに値を設定する.  --- ここから --
+              let task = taskArray[indexPath.row]
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm"
             
@@ -129,7 +129,7 @@ class ViewController: UIViewController, UITableViewDelegate,  UISearchBarDelegat
         } else {
             let task = Task()
             task.date = Date()
-          taskcategory = ""
+          taskcategory = []
      
             let allTasks = realm.objects(Task.self)
             if allTasks.count != 0 {
@@ -143,10 +143,8 @@ class ViewController: UIViewController, UITableViewDelegate,  UISearchBarDelegat
     func searchBarSearchButtonClicked(_ searchbar: UISearchBar) {
         self.view.endEditing(true)
         searchbar.showsCancelButton = true
-        self.searchResults = category.filter{
-            // 大文字と小文字を区別せずに検索
-            $0.lowercased().contains(searchbar.text!.lowercased())
-        }
+        searchResult = searchbar.text!
+
         self.tableView.reloadData()
     }
     
