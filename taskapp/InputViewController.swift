@@ -19,7 +19,7 @@ let realm = try! Realm()
     
     @IBOutlet weak var taskcategory: UITextField!
     var task: Task!
-  
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +93,7 @@ let realm = try! Realm()
             }
         }
     }
-    
+
 
 }
 
