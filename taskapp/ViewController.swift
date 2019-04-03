@@ -34,12 +34,12 @@ class ViewController: UIViewController, UITableViewDelegate,  UISearchBarDelegat
     
 
 
-    func searchBarTextDidEndEditing(searchbar: UISearchBar) {
+  func searchBarTextDidEndEditing(_ searchbar: UISearchBar) {
         searchFlag = true
         if let search = searchbar.text{
             taskcategory = try! Realm().objects(Task.self).filter("taskcategory = '\(search)'")
         } else {
-            taskcategory = try! Realm().objects(Task.self).filter("name IN {%@, %@, %@, %@, %@}","study", "work", "excersize", "hobby", "code")
+            taskcategory = try! Realm().objects(Task.self).filter("category IN {%@, %@, %@, %@, %@}","study", "work", "excersize", "hobby", "code")
         }
         tableView.reloadData()
     }
