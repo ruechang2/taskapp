@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate,  UISearchBarDelegat
   func searchBarTextDidEndEditing(_ searchbar: UISearchBar) {
         searchFlag = true
         if let search = searchbar.text{
-            taskcategory = try! Realm().objects(Task.self).filter("taskcategory = '\(search)'")
+            taskcategory = try! Realm().objects(Task.self).filter("category = '\(search)'")
         } else {
             taskcategory = try! Realm().objects(Task.self).filter("category IN {%@, %@, %@, %@, %@}","study", "work", "excersize", "hobby", "code")
         }
@@ -48,8 +48,8 @@ class ViewController: UIViewController, UITableViewDelegate,  UISearchBarDelegat
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if searchbar.text != "" {
-     return taskcategory.count
+   if searchFlag == true {
+        return taskcategory.count
         } else {
         
         return taskArray.count
